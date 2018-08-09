@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Observables в KnockoutJS</title>
+</head>
+<body>
+<div>
+    <p data-bind="text: company"></p>
+</div>
+<p><button id="changePhoneBtn">Изменить</button></p>
+<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.0.js"></script>
+<script>
+    var viewModel = {
+        company: ko.observable("Digicode")
+    };
+    ko.applyBindings(viewModel);
+
+    var changePhoneBtn = document.getElementById("changePhoneBtn");
+    changePhoneBtn.addEventListener("click", function (e) {
+
+        viewModel.company("Best Digicode"); // изменяем наблюдаемый объект
+    });
+</script>
+</body>
+</html>
